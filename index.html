@@ -9,19 +9,26 @@
 </head>
 
 <body onload="init()">
-    <h1>Meme Generator</h1>
+    
+    <label>Add Text
+        <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text" id="0">
+    </label>
+    <label>Add Text
+        <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text" id="1">
+    </label>
 
-    <div class="gallery"> 
-       <img onclick="drawImg(this)" src="images/1.jpg" alt="">
-       <img onclick="drawImg(this)" src="images/2.jpg" alt="">
-    </div>
+ <button onclick="onChangeFontSize(-3)"> - </button>
+ <button onclick="onChangeFontSize(+3)"> + </button>
+ <button onclick="onChangeTextPosition(+5)"> Down </button>
+ <button onclick="onChangeTextPosition(-5)"> Up </button>
+ <button onclick="onSwitchLine()"> Switch Line </button>
 
     <div class="canvas-container">
-        <canvas onclick="draw(event)" id="my-canvas" style="border: 1px solid black;"></canvas>
+        <canvas id="my-canvas" style="border: 1px solid black;"></canvas>
     </div>
-    
-    <input name="text" type="text" placeholder="Add Text" />
-    <botton class="text-btn" onclick="onAddText()">Add Text</botton>
+ 
+    <div class="gallery-container"></div>
+
 
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>

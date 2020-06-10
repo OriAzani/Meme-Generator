@@ -1,26 +1,16 @@
-*{
-    box-sizing: border-box;
+* {
+box-sizing: border-box;
 }
+
 body{
-    margin:  0 auto;
-    background-color: aliceblue;
+margin: 0 auto;
+ font-size: 1rem;
 }
-
-h1{
-    text-align: center;
-}
-
 canvas{
-    display: block;
-    margin: auto;
-
+display:block; 
 }
 
-.gallery{
-    width: 100px;
-    height: 100px;
-}
-.gallery img{
-    height: 100px;
-    width: 100px;
+.canvas-container{
+width: 500px;
+height: 500px;
 }
