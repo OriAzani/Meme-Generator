@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
+
+<body onload="init()">
     <h1>Meme Generator</h1>
 
-    <script src="js/main.js"></script>
+    <div class="gallery"> 
+       <img onclick="drawImg(this)" src="images/1.jpg" alt="">
+       <img onclick="drawImg(this)" src="images/2.jpg" alt="">
+    </div>
+
+    <div class="canvas-container">
+        <canvas onclick="draw(event)" id="my-canvas" style="border: 1px solid black;"></canvas>
+    </div>
+    
+    <input name="text" type="text" placeholder="Add Text" />
+    <botton class="text-btn" onclick="onAddText()">Add Text</botton>
+
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
+
 </html>

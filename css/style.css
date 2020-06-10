@@ -9,3 +9,18 @@ body{
 h1{
     text-align: center;
 }
+
+canvas{
+    display: block;
+    margin: auto;
+
+}
+
+.gallery{
+    width: 100px;
+    height: 100px;
+}
+.gallery img{
+    height: 100px;
+    width: 100px;
+}
