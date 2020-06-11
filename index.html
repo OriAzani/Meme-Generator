@@ -5,31 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="lib/fontawesome-free-5.13.0-web/css/all.css">
     <title>Document</title>
 </head>
 
 <body onload="init()">
-    
-    <label>Add Text
-        <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text" id="0">
-    </label>
-    <label>Add Text
-        <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text" id="1">
-    </label>
 
- <button onclick="onChangeFontSize(-3)"> - </button>
- <button onclick="onChangeFontSize(+3)"> + </button>
- <button onclick="onChangeTextPosition(+5)"> Down </button>
- <button onclick="onChangeTextPosition(-5)"> Up </button>
- <button onclick="onSwitchLine()"> Switch Line </button>
-
-    <div class="canvas-container">
-        <canvas id="my-canvas" style="border: 1px solid black;"></canvas>
-    </div>
- 
-    <div class="gallery-container"></div>
+    <section class="main-container flex column ">
 
 
+        <header class="flex space-between">
+           <img class="logo-img self-center" src="logo/Layer_2.png" alt="">
+        
+          
+            <ul class="main-nav flex self-center space-between clean-list">
+
+                <li class="gallery-li" onclick="show(this)">
+                    <a class="gallery" href="#">Gallery</a>
+                </li>
+                <li class="meme-li" onclick="show(this)">
+                    <a class="memes" href="#">Memes</a>
+                </li>
+                <li class="about-li" onclick="show(this)">
+                    <a class="about" href="#">About</a>
+                </li>
+
+            </ul>
+        </header>
+
+
+        <div class="center flex self-center">
+
+            <div class="canvas-container">
+                <canvas id="my-canvas" style="border: 1px solid black;"></canvas>
+            </div>
+
+            <div class="controller flex column align-start align-items">
+                <label>Add Text
+                    <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text"
+                        id="0">
+                </label>
+                <label>Add Text
+                    <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text"
+                        id="1">
+                </label>
+              
+                <div class="btn-container flex wrap">
+                    <button onclick="onChangeFontSize(-3)"><img src="buttons/decrease_font_-_icon.png" alt=""></button>
+                    <button onclick="onChangeFontSize(+3)"><img src="buttons/increase_font_-_icon.png" alt=""></button>
+                    <button onclick="onChangeTextPosition(+5)"> <i class="fa fa-arrow-down"></i> </button>
+                    <button onclick="onChangeTextPosition(-5)"> <i class="fa fa-arrow-up"></i> </button>
+                    <button onclick="onSwitchLine()"> <img src="buttons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button onclick="clearCanvas()"><img src="buttons/trash.png" alt=""></button>
+                     <a class="download-link" href="#" onclick="onDownloadCanvas(this)" download=""><button><i class="fas fa-file-download"></i></button></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gallery-container self-center"></div>
+
+    </section>
+
+    <footer class="flex column space-around"> 
+        <img class="logo-img self-center" src="logo/Layer_2.png" alt="">
+        <p>all rights reserved 2020</p>
+    </footer>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>

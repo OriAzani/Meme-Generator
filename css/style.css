@@ -1,16 +1,194 @@
 * {
 box-sizing: border-box;
 }
-
+    
 body{
 margin: 0 auto;
- font-size: 1rem;
-}
-canvas{
-display:block; 
+font-size: 1rem;
+font-family: 'Montserrat', sans-serif;
 }
 
+.clean-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+button {
+    width: 40px;
+    height: 41px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+button:focus { 
+    outline: none; 
+}
+
+button img{
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+label{
+    margin-top: 10px;
+    padding: 5px;
+    border: .5px solid lightgray;
+    border-radius: 12px;
+    background-color: #ffffff;   
+}
+
+/* ----------------  HEADER   ---------------*/
+
+
+header{
+    font-size: 1rem;
+    width: 100vw;
+    text-align: center;
+    height: 66px;
+    background-color: #ff7f00;
+}
+
+.logo{
+margin:10px;
+}
+
+.logo-img{
+width: 133px;
+height: 22px;
+border: none;
+margin-left: 50px;
+}
+
+.main-nav{
+  margin-right: 40px;  
+}
+
+ul li{  
+padding :10px;
+color: #ffffff;
+font-family: 'Montserrat', sans-serif;
+font-size: 19px;
+line-height: 19px;
+font-weight: 300;
+}
+ul li:not(:last-child){
+border-right: 1px solid #8a8a8a;
+}
+
+/* ----------------  MAIN  ---------------*/
+.main-container{
+    background-color: lightgray;
+}
+
+.center{
+display: flex;
+}
+
+.controller{
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+    background-color: lightcyan;
+}
+canvas{
+    display:block; 
+}
+    
 .canvas-container{
-width: 500px;
-height: 500px;
+margin: 10px;
+width: 300px;
+height: 300px;
+}
+
+.gallery-container{
+max-width: 500px;
+}
+
+img {
+    height: 5rem;
+    width: 5rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.btn-container{
+  width: 152px;
+  margin: 5px;
+  border: .5px solid rgb(167, 72, 223);
+  border-radius: 12px;
+  background-color:#e798ff  
+}
+.btn-container button{
+    margin: 5px;
+}
+
+/* ----------------  FOOTER  --------------- */
+
+footer{
+    font-size: 1rem;
+    width: 100vw;
+    height: 107px;
+    background-color: #ff7f00;
+    text-align: center;
+}
+
+footer p{
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;    
+    font-size: 16px;
+    font-weight: 100;
+}
+footer .logo-img{
+margin: 0px;
+}
+
+/* ----------------  HELPERS  --------------- */
+
+.flex{
+   display: flex;
+}
+.wrap{
+    flex-wrap: wrap;
+    }
+.flex.column{
+    flex-direction: column;
+}
+.flex.space-between{
+    justify-content: space-between;
+}
+.flex.space-around{
+    justify-content: space-around;
+}
+.flex.align-items{
+    align-items: center;
+}
+.flex.align-start{
+ align-self: flex-start;
+}
+.flex.align-end{
+ align-self: flex-end;
+}
+.self-center{
+ align-self: center;
+}
+.self-end{
+ align-self: flex-end;
+}
+a {
+text-decoration: none;
+color: #ffffff;
+}
+.hide {
+    display: none;
+}
+
+
+
+
+@media (max-width: 650px) {
+.center{
+flex-direction: column;
+ }
 }
