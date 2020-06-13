@@ -176,9 +176,6 @@ function doUploadImg(elForm, onSuccess) {
     })
 }
 
-
-
-
 //----HIDE PUBLISH BTN--//
 function hidePubBTn(){
     var pubBtn = document.querySelector('.publish-btn');
@@ -192,6 +189,8 @@ var imageLoader = document.getElementById('imageLoader');
     imageLoader.addEventListener('change', handleImage, false);
 
 function handleImage(e){
+    console.log('in');
+    
     var reader = new FileReader();
     reader.onload = function(event){
         var img = new Image();

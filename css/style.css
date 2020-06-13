@@ -39,6 +39,7 @@ label{
     border: .5px solid rgb(48, 48, 48);
     border-radius: 12px;
     background-color:#f5cb5c;
+    cursor: pointer;
 }
 
 /* ----------------  HEADER   ---------------*/
@@ -283,7 +284,6 @@ ul li{
     border-radius: 12px;
     background-color: #f5cb5c;
 }
-
 
 footer{
     padding: 10px;

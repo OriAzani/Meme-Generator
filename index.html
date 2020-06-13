@@ -57,17 +57,13 @@
                     <button onclick="onChangeTextPosition(-5)"> <i class="fa fa-arrow-up"></i> </button>
 
 
-                  
+
                     <div class="flex">
-                        <!-- //upload// -->
-                        <button class="purple-btn"> <i class="fas fa-file-upload"></i>
-                            <input type="file" id="imageLoader" name="imageLoader" class="input-file" />
-                        </button>
-                         <!-- //download// -->
-                         <a class="download-link" href="#" onclick="onDownloadCanvas(this)" download=""><button
-                            class="green-btn"><i class="fas fa-file-download"></i></button></a>
-                          <!-- //clear// -->
-                           <!-----share ----->
+                        <!-- //download// -->
+                        <a class="download-link" href="#" onclick="onDownloadCanvas(this)" download=""><button
+                                class="green-btn"><i class="fas fa-file-download"></i></button></a>
+                        <!-- //clear// -->
+                        <!-----share ----->
                         <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                             <input name="img" id="imgData" type="hidden" />
                             <button class="blue-btn btn publish-btn" type="submit" onclick="hidePubBTn()"
@@ -75,8 +71,8 @@
                             <div class="share-container"></div>
                         </form>
                         <button class="red-btn" onclick="clearCanvas()"><img src="buttons/trash.png" alt=""></button>
-                       
-                       
+
+
 
                     </div>
                 </div>
@@ -86,8 +82,13 @@
                 <label>Text Color
                     <input type="color" onchange="onChangeTextColor(this.value)">
                 </label>
-            </div>
 
+                <!-- //upload// -->
+                <label>Upload
+                <input type="file" id="imageLoader" name="imageLoader" class="input-file" />
+  
+            </label>
+            </div>
         </div>
 
 
