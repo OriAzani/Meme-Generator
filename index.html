@@ -5,19 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="lib/fontawesome-free-5.13.0-web/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lib/fontawesome-free-5.13.0-web/css/all.css">
     <title>Document</title>
 </head>
 
 <body onload="init()">
-
     <section class="main-container flex column ">
-
-
         <header class="flex space-between">
-           <img class="logo-img self-center" src="logo/Layer_2.png" alt="">
-        
-          
+            <div class="logo"><span>Meme Generator!</span></div>
+
+
             <ul class="main-nav flex self-center space-between clean-list">
 
                 <li class="gallery-li" onclick="show(this)">
@@ -26,21 +24,21 @@
                 <li class="meme-li" onclick="show(this)">
                     <a class="memes" href="#">Memes</a>
                 </li>
-                <li class="about-li" onclick="show(this)">
+                <li class="about-li" onclick="show('about')">
                     <a class="about" href="#">About</a>
                 </li>
-
             </ul>
         </header>
 
 
-        <div class="center flex self-center">
+        <div class="center flex grow self-center">
 
             <div class="canvas-container">
                 <canvas id="my-canvas" style="border: 1px solid black;"></canvas>
             </div>
 
-            <div class="controller flex column align-start align-items">
+            <div class="controller flex column align-items">
+
                 <label>Add Text
                     <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text"
                         id="0">
@@ -49,28 +47,58 @@
                     <input onkeyup="onUpdateText(this)" onclick="onUpdateSlectedLine(this)" type="text" name="text"
                         id="1">
                 </label>
-              
+
                 <div class="btn-container flex wrap">
                     <button onclick="onChangeFontSize(-3)"><img src="buttons/decrease_font_-_icon.png" alt=""></button>
                     <button onclick="onChangeFontSize(+3)"><img src="buttons/increase_font_-_icon.png" alt=""></button>
+                    <button onclick="onSwitchLine()"> <img
+                            src="buttons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button onclick="onChangeTextPosition(+5)"> <i class="fa fa-arrow-down"></i> </button>
                     <button onclick="onChangeTextPosition(-5)"> <i class="fa fa-arrow-up"></i> </button>
-                    <button onclick="onSwitchLine()"> <img src="buttons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button onclick="clearCanvas()"><img src="buttons/trash.png" alt=""></button>
-                     <a class="download-link" href="#" onclick="onDownloadCanvas(this)" download=""><button><i class="fas fa-file-download"></i></button></a>
+
+
+                  
+                    <div class="flex">
+                        <!-- //upload// -->
+                        <button class="purple-btn"> <i class="fas fa-file-upload"></i>
+                            <input type="file" id="imageLoader" name="imageLoader" class="input-file" />
+                        </button>
+                         <!-- //download// -->
+                         <a class="download-link" href="#" onclick="onDownloadCanvas(this)" download=""><button
+                            class="green-btn"><i class="fas fa-file-download"></i></button></a>
+                          <!-- //clear// -->
+                           <!-----share ----->
+                        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                            <input name="img" id="imgData" type="hidden" />
+                            <button class="blue-btn btn publish-btn" type="submit" onclick="hidePubBTn()"
+                                onclick="onSuccess()"><i class="fas fa-share"></i></button>
+                            <div class="share-container"></div>
+                        </form>
+                        <button class="red-btn" onclick="clearCanvas()"><img src="buttons/trash.png" alt=""></button>
+                       
+                       
+
+                    </div>
                 </div>
+                <label>Border Color
+                    <input type="color" onchange="onChangeBorderColor(this.value)">
+                </label>
+                <label>Text Color
+                    <input type="color" onchange="onChangeTextColor(this.value)">
+                </label>
             </div>
 
         </div>
 
-        <div class="gallery-container self-center"></div>
 
+        <div class="gallery-container self-center flex wrap space-around grow"></div>
+
+        <footer class="flex column space-around">
+            <div class="logo">Meme Generator!</div>
+            <p>all rights reserved 2020</p>
+        </footer>
     </section>
 
-    <footer class="flex column space-around"> 
-        <img class="logo-img self-center" src="logo/Layer_2.png" alt="">
-        <p>all rights reserved 2020</p>
-    </footer>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>

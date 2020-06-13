@@ -1,5 +1,4 @@
 'use strict'
-
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 
 var gImgs = [
@@ -30,17 +29,19 @@ var gMeme = {
         {
             txt: '', 
             size: 50,
-            align: 'left',
-            color: 'white',
-            x:50,
+            align: 'center',
+            borderColor: 'black',
+            textColor: 'white',
+            x:150,
             y:50,
         },
         {
             txt: '', 
             size: 50,
-            align: 'left',
-            color: 'white',
-            x:50,
+            align: 'center',
+            borderColor: 'black',
+            textColor: 'white',
+            x:150,
             y:250,
         }
     ]
@@ -55,7 +56,6 @@ function getMeme() {
 }
 
 function updateText(text){  //changing the text on gMemes >> lines >>txt
-    //console.log('in updatetext ')
     gMeme.lines[gMeme.selectedLineIdx].txt = text;
 }
 
@@ -71,11 +71,18 @@ function changeTextPosition(diff){
 function switchLine(){
    if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
    else gMeme.selectedLineIdx = 0
-//    console.log(gMeme.selectedLineIdx)
-
 }
 function updateSelectedLine(inputId){
     gMeme.selectedLineIdx = inputId
 }
 
+function changeBorderColor(color){
+    gMeme.lines.forEach(line => line.borderColor=color);
+
+}
+
+function changeTextColor(color){
+    gMeme.lines.forEach(line => line.textColor=color);
+
+}
 
