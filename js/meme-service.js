@@ -1,4 +1,7 @@
 'use strict'
+const KEY = 'savedMemes';
+var gSavedMemes = [];
+
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 
 var gImgs = [
@@ -27,62 +30,82 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: '', 
+            idx:0,
+            txt: '',
             size: 50,
             align: 'center',
             borderColor: 'black',
             textColor: 'white',
-            x:150,
-            y:50,
+            x: 150,
+            y: 50,
+
         },
         {
-            txt: '', 
+            idx:1,
+            txt: '',
             size: 50,
             align: 'center',
             borderColor: 'black',
             textColor: 'white',
-            x:150,
-            y:250,
+            x: 150,
+            y: 250,
         }
     ]
 }
 
 function getImgs() {
-return gImgs;
+    return gImgs;
+}
+
+function getImgById(imgId) {
+    return gImgs.find(img => img.id === imgId)
 }
 
 function getMeme() {
-   return gMeme;
+    return gMeme;
 }
 
-function updateText(text){  //changing the text on gMemes >> lines >>txt
+
+function updateText(text) {  //changing the text on gMemes >> lines >> txt
     gMeme.lines[gMeme.selectedLineIdx].txt = text;
 }
 
-function changeFontSize(diff){
-    gMeme.lines[gMeme.selectedLineIdx].size += diff;
+function changeFontSize(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].size += diff * 3;
 }
 
 
-function changeTextPosition(diff){
-    gMeme.lines[gMeme.selectedLineIdx].y += diff;
+function changeTextYPosition(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].y += diff * 5;
 }
+function changeTextXPosition(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].x += diff * 5;
 
-function switchLine(){
-   if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
-   else gMeme.selectedLineIdx = 0
 }
-function updateSelectedLine(inputId){
+function switchLine(idx) {
+    gMeme.selectedLineIdx = idx
+}
+function updateSelectedLine(inputId) {
     gMeme.selectedLineIdx = inputId
 }
 
-function changeBorderColor(color){
-    gMeme.lines.forEach(line => line.borderColor=color);
-
+function changeBorderColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].borderColor = color
+}
+function changeTextColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].textColor = color
 }
 
-function changeTextColor(color){
-    gMeme.lines.forEach(line => line.textColor=color);
-
+function clearCanvas() {
+    gMeme.lines[gMeme.selectedLineIdx].txt = ''
 }
 
+function saveMeme() {
+    gSavedMemes.push(gMeme);
+    saveToStorage(KEY, gSavedMemes)
+}
+
+function getMemes() {
+    gSavedMemes = loadFromStorage(KEY)
+    return gSavedMemes;
+}
